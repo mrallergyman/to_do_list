@@ -76,7 +76,7 @@ def read_from_json_file():
                 return tasks, selected
     except (json.JSONDecodeError, IOError) as e:
         print("Ошибка чтения JSON:", e)
-        return []
+        return [], []
 
 
 # добавляем задачи в JSON файл при закрытии окна
@@ -141,9 +141,9 @@ scrollbar.grid(row=1, column=2, sticky='ns')
 listbox.config(yscrollcommand=scrollbar.set)
 
 # создаем кнопку "Очистить список" из пакета ttk
-btn_del = ttk.Button(text="Clear tasks", command=clear_tasks)
+btn_clear = ttk.Button(text="Clear tasks", command=clear_tasks)
 # размещаем кнопку в окне
-btn_del.grid(column=0, row=2, padx=6, pady=6, sticky='w')
+btn_clear.grid(column=0, row=2, padx=6, pady=6, sticky='w')
 
 # создаем кнопку "Удалить задачу" из пакета ttk
 btn_del = ttk.Button(text="Del Task", command=del_task)
